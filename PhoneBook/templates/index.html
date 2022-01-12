@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous">
+    <link rel="stylesheet" href="static/css/boxicons/css/boxicons.css">
+    <link rel="stylesheet" href="static/css/bootstrap-icons/bootstrap-icons.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" ></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js" integrity="sha384-Atwg2Pkwv9vp0ygtn1JAojH0nYbwNJLPhwyoVbhoPwBhjQPR5VtM2+xf0Uwh9KtT" crossorigin="anonymous"></script>
+
+    <style>
+        body {
+            background: #000000;
+            background: -webkit-linear-gradient(to right, #000000, #636fa4);
+            background: linear-gradient(to right, #000000, #636fa4);
+            min-height: 100vh;
+        }
+
+        .social-link {
+            width: 30px;
+            height: 30px;
+            border: 1px solid #ddd;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #666;
+            border-radius: 50%;
+            transition: all 0.3s;
+            font-size: 0.9rem;
+        }
+
+        .social-link:hover, .social-link:focus {
+            background: #ddd;
+            text-decoration: none;
+            color: #555;
+        }
+
+        .modal-content{
+            display: block;
+        }
+
+        .cards:hover, .cards:focus{
+            background: #ddd;
+            text-decoration: none;
+            color: #555;
+        }
+
+        /*--------------------------------------------------------------
+        # Footer
+        --------------------------------------------------------------*/
+        #footer {
+            background: #000000;
+            background: -webkit-linear-gradient(to right, #000000, #636fa4);
+            background: linear-gradient(to right, #000000, #636fa4);
+            color: white;
+            font-size: 14px;
+            text-align: center;
+            padding: 30px 0;
+        }
+        #footer h3 {
+            font-size: 36px;
+            font-weight: 700;
+            position: relative;
+            font-family: "Poppins", sans-serif;
+            padding: 0;
+            margin: 0 0 15px 0;
+        }
+        #footer p {
+            font-size: 15;
+            font-style: italic;
+            padding: 0;
+            margin: 0 0 40px 0;
+        }
+        #footer .social-links {
+            margin: 0 0 40px 0;
+        }
+        #footer .social-links a {
+            font-size: 18px;
+            display: inline-block;
+            background: #636fa4;
+            color: #fff;
+            line-height: 1;
+            padding: 8px 0;
+            margin-right: 4px;
+            border-radius: 50%;
+            text-align: center;
+            width: 36px;
+            height: 36px;
+            transition: 0.3s;
+        }
+        #footer .social-links a:hover {
+            background: #3e4668;
+            color: #fff;
+            text-decoration: none;
+        }
+        #footer .copyright {
+            margin: 0 0 5px 0;
+        }
+        #footer .credits {
+            font-size: 13px;
+        }
+
+
+    </style>
+
+
+</head>
+<body>
+    
+<div class="container py-5">
+    <div class="row text-center text-white">
+        <div class="col-lg-8 mx-auto">
+            <h1 class="display-4">Contacts  <i class='bx bxs-contact' ></i> </h1> 
+            <p class="lead mb-0">Vishal Chandru</p><hr><br><br>
+        </div>
+
+        <div class="col-lg-8 mx-auto">
+            <div class="col-lg-8 mx-auto">
+                <form action="/search" method="post">
+                    <div class="input-group rounded">
+                        <input type="text" class="form-control" style="border-radius: 100px; background-color: rgb(255,255,255,0.5); border-width: 2px; border-color: white; text-decoration: white;" name= "searchname" placeholder="Search">&nbsp;
+                        <button type="submit" style="all:unset"><i class="fas fa-search"></i></button>
+                    </div>
+                </form>
+                <span style="margin-left: 750px;"><button id="myBtn" type="button" class="btn btn-light">+ Add</button></span>
+            </div>
+        </div>
+    </div>
+
+    <div id="myModal" class="modal" style="background-color: rgb(0,0,0,0.5);">
+        <!-- Modal content -->
+            <div class="modal-content" style="width: 50%; margin-bottom: 10%; margin-top: 10%; margin-left: 25%;">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Add New Contact</h5>
+                    <button type="button" style="all: unset;" class="close" data-dismiss="modal" aria-label="Close">
+                    <span class="close" aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <br>
+                <div class="modal-body">
+    
+                    <form action='/' method="post" style="margin-left: 5%;">
+                        <div class="form-group">
+                            <label for="firstname">First Name</label>
+                            <input type="text" class="form-control" style="width: 80%;" id="firstname" name="fname" placeholder="First Name" required>
+                        </div>
+                        <br>
+                        <div class="form-group">
+                            <label for="lastname">Last Name</label>
+                            <input type="text" class="form-control" style="width: 80%;" id="lastname" name="lname" placeholder="Last Name" required>
+                        </div>
+                        <br>
+                        <div class="form-group">
+                            <label for="company">Company</label>
+                            <input type="text" class="form-control" style="width: 80%;" id="company" name="company" placeholder="Company" required>
+                        </div>
+                        <br>
+                        <div class="form-group">
+                            <label for="phone">Mobile</label>
+                            <input type="text" pattern="[0-9]+" class="form-control" style="width: 80%;" id="phone" name="phone" placeholder="Phone" required>
+                        </div>
+                        <br>
+                        <div class="form-group">
+                        <label for="exampleInputEmail1">Email address</label>
+                        <input type="email" class="form-control" style="width: 80%;" id="exampleInputEmail1" name ="email" aria-describedby="emailHelp" placeholder="Enter email" required>
+                        </div>
+                        <br>
+                        <div class="form-group">
+                            <label for="fbprofile">Facebook &nbsp;</label><a href="https://www.facebook.com/" target="_blank"><i class='bx bx-link-external'></i></a>
+                            <input type="text" class="form-control" style="width: 80%;" id="fbprofile" name ="fbook" placeholder="link to facebook">
+                        </div>
+                        <br>
+                        <div class="form-group">
+                            <label for="twprofile">Twitter &nbsp;</label> <a href="https://twitter.com/i/flow/login?input_flow_data=%7B%22requested_variant%22%3A%22eyJsYW5nIjoiZW4ifQ%3D%3D%22%7D" target="_blank"><i class='bx bx-link-external'></i></a>
+                            <input type="text" class="form-control" style="width: 80%;" id="twprofile" name ="twitter" placeholder="link to twitter">
+                        </div>
+                        <br>
+                        <div class="form-group">
+                            <label for="instagr">Instagram &nbsp;</label> <a href="https://www.instagram.com/accounts/login/" target="_blank"><i class='bx bx-link-external'></i></a>
+                            <input type="text" class="form-control" style="width: 80%;" id="instagr" name ="insta" placeholder="link to instagram">
+                        </div>
+                        <br>
+                        <div class="form-group">
+                            <label for="linkin">Linkedin &nbsp;</label><a href="https://www.linkedin.com/login?fromSignIn=true&trk=guest_homepage-basic_nav-header-signin" target="_blank"><i class='bx bx-link-external'></i></a>
+                            <input type="text" class="form-control" style="width: 80%;" id="linkin" name ="linked" placeholder="link to linkedin">
+                        </div>
+                        <br>
+                        <input type="submit" style="background-color: #456; margin-top: 5%; margin-bottom: 5%; margin-left: 80%;" class="btn btn-primary" value = "Add">
+                    </form>
+                </div>
+    
+            </div>
+      </div>
+    </div><!-- End -->
+
+
+    <br><br><br>
+{% if contacts|length < 1 %}
+<h4 style="text-align: center; color: white;"> There are no Contacts. Add contacts to view...!</h4>
+{% else %}
+<div class="container">
+    <div class="row">
+
+        {% for contact in contacts %}
+        <!-- Team item -->
+        <div class="col-xl-3 col-sm-6 mb-5 text-center">
+            <div class="cards" style="border-radius: 10px;">
+            <div class="shadow-lg p-3 mb-5 py-3 px-4" style="background-color: rgba(255, 255, 255, 0.7); border-radius: 10px;">
+                <div>
+                    <a href="/delete/{{contact.id}}" type="button" style="margin-left: 220px; color: black;"><i class='bx bx-trash'></i></a>
+                    <button type="button" style="all: unset; color: black; cursor: pointer;" class="btn btn-primary" data-toggle="modal" data-target="#myModal{{contact.id}}">
+                        <i class='bx bx-edit-alt' ></i>
+                    </button>                
+                </div>
+                <img src="static/img/usericon.png" alt="" width="100" class="img-fluid rounded-circle mb-3 img-thumbnail shadow-sm">
+                <h5 class="mb-0">{{contact.fname}} {{contact.lname}}</h5><span class="small text-uppercase text-muted ">{{contact.company}}</span><br>
+                <span class="small text-muted ">+91 {{contact.phno}}</span><br>
+                <span class="small text-muted "><em>{{contact.email}}</em></span><hr>
+                <ul class="social mb-0 list-inline mt-3">
+                    <li class="list-inline-item"><a href= "{{contact.fbook}}" style="text-decoration: none;" class="social-link"><i class="bx bxl-facebook"></i></a></li>
+                    <li class="list-inline-item"><a href= "{{contact.twitter}}" style="text-decoration: none;" class="social-link"><i class="bx bxl-twitter"></i></a></li>
+                    <li class="list-inline-item"><a href= "{{contact.insta}}" style="text-decoration: none;" class="social-link"><i class="bx bxl-instagram"></i></a></li>
+                    <li class="list-inline-item"><a href= "{{contact.linked}}" style="text-decoration: none;" class="social-link"><i class="bx bxl-linkedin"></i></a></li>
+                </ul>
+            </div>
+        </div><!-- End -->
+    </div>
+        <!-- The Modal -->
+        <div class="modal" id="myModal{{contact.id}}">
+            <div class="modal-dialog" style="all:unset;">
+                <div class="modal-content" style="width: 50%; margin-bottom: 10%; margin-top: 10%; margin-left: 25%;">
+                    <!-- Modal Header -->
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Edit Contact</h5>
+                        <button type="button" class="close" data-dismiss="modal" >&times;</button>
+                    </div><br>
+                    <!-- Modal body -->
+                    <div class="modal-body">
+                        <div class="container">
+                            <form action='/update/{{contact.id}}' method="post">
+                                <div class="form-group">
+                                    <label for="firstname">First Name</label>
+                                    <input type="text" class="form-control" style="width: 80%;" id="firstname" value={{contact.fname}} name="fname" placeholder="First Name" required>
+                                </div>
+                                <br>
+                                <div class="form-group">
+                                    <label for="lastname">Last Name</label>
+                                    <input type="text" class="form-control" style="width: 80%;" id="lastname" value={{contact.lname}} name="lname" placeholder="Last Name" required>
+                                </div>
+                                <br>
+                                <div class="form-group">
+                                    <label for="company">Company</label>
+                                    <input type="text" class="form-control" style="width: 80%;" id="company" value={{contact.company}} name="company" placeholder="Company" required>
+                                </div>
+                                <br>
+                                <div class="form-group">
+                                    <label for="phone">Mobile</label>
+                                    <input type="text" pattern="[0-9]+" class="form-control" style="width: 80%;" id="phone" value={{contact.phno}} name="phone" placeholder="Phone" required>
+                                </div>
+                                <br>
+                                <div class="form-group">
+                                    <label for="exampleInputEmail1">Email address</label>
+                                    <input type="email" class="form-control" style="width: 80%;" id="exampleInputEmail1" value={{contact.email}} name ="email" aria-describedby="emailHelp" placeholder="Enter email" required>
+                                </div>
+                                <br>
+                                <div class="form-group">
+                                    <label for="fbprofile">Facebook &nbsp;</label><a href="https://www.facebook.com/" target="_blank"><i class='bx bx-link-external'></i></a>
+                                    <input type="text" class="form-control" style="width: 80%;" id="fbprofile" value={{contact.fbook}} name ="fbook" placeholder="link to facebook">
+                                </div>
+                                <br>
+                                <div class="form-group">
+                                    <label for="twprofile">Twitter &nbsp;</label><a href="https://twitter.com/i/flow/login?input_flow_data=%7B%22requested_variant%22%3A%22eyJsYW5nIjoiZW4ifQ%3D%3D%22%7D" target="_blank"><i class='bx bx-link-external'></i></a>
+                                    <input type="text" class="form-control" style="width: 80%;" id="twprofile" value={{contact.twitter}} name ="twitter" placeholder="link to twitter">
+                                </div>
+                                <br>
+                                <div class="form-group">
+                                    <label for="instragram">Instagram &nbsp;</label><a href="https://www.instagram.com/accounts/login/" target="_blank"><i class='bx bx-link-external'></i></a>
+                                    <input type="text" class="form-control" style="width: 80%;" id="instragram" value={{contact.insta}} name ="insta" placeholder="link to instagram">
+                                </div>
+                                <br>
+                                <div class="form-group">
+                                    <label for="linkedin" style="color: black;">Linkedin &nbsp;</label><a href="https://www.linkedin.com/login?fromSignIn=true&trk=guest_homepage-basic_nav-header-signin" target="_blank"><i class='bx bx-link-external'></i></a>
+                                    <input type="text" class="form-control" style="width: 80%;" id="linkedin" value={{contact.linked}} name ="linked" placeholder="link to linkedin">
+                                </div>
+                                <br>
+                                <input type="submit" style="background-color: #456; margin-top: 5%; margin-bottom: 5%; margin-left: 80%;" class="btn btn-primary" value = "Update">
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+         </div>
+
+        {% endfor %}   
+    </div>
+</div>
+{% endif %}
+<hr style="color: white;">
+<!-- ======= Footer ======= -->
+<footer id="footer">
+    <div class="container">
+      <h3>Vishal Chandru</h3>
+      <p>Aspiring Data Scientist</p>
+      <div class="social-links">
+        <a href="https://twitter.com/vi_shal_do_it" target="_blank" class="twitter"><i class="bx bxl-twitter"></i></a>
+        <a href="https://www.facebook.com/vishal.chandru.3" target="_blank" class="facebook"><i class="bx bxl-facebook"></i></a>
+        <a href="https://www.instagram.com/vishal_cymk/" target="_blank" class="instagram"><i class="bx bxl-instagram"></i></a>
+        <a href="https://github.com/VishalChandru" target="_blank" class="google-plus"><i class='bx bxl-github'></i></a>
+        <a href="https://linkedin.com/in/vishal-chandru-952a62182" target="_blank" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+      </div>
+      <div class="copyright">
+        &copy; Copyright <strong><span>Contacts</span></strong>. All Rights Reserved
+      </div>
+      <div class="credits">
+        Designed by <a href="https://linkedin.com/in/vishal-chandru-952a62182" style="color: #7685c9;">Vishal Chandru</a>
+      </div>
+    </div>
+  </footer><!-- End Footer -->
+
+
+<script src="../static/js/index.js"></script>
+<script src="static/js/jquery-3.3.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" ></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js" integrity="sha384-Atwg2Pkwv9vp0ygtn1JAojH0nYbwNJLPhwyoVbhoPwBhjQPR5VtM2+xf0Uwh9KtT" crossorigin="anonymous"></script>
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+ 
+</body>
+</html>
